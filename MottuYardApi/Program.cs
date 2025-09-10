@@ -44,7 +44,7 @@ const int MaxPageSize = 100;
 
 // =============== PÁTIOS ===================
 
-app.MapGet("/api/patios", async ([FromQuery] int page = 1, [FromQuery] int pageSize = 10, AppDbContext db, HttpContext http) =>
+app.MapGet("/api/patios", async (AppDbContext db, HttpContext http, [FromQuery] int page = 1, [FromQuery] int pageSize = 10) =>
 {
     (page, pageSize) = Pagination.Normalize(page, pageSize, MaxPageSize);
 
@@ -123,7 +123,7 @@ app.MapDelete("/api/patios/{id:int}", async (int id, AppDbContext db) =>
 
 // =============== ZONAS ===================
 
-app.MapGet("/api/zonas", async ([FromQuery] int page = 1, [FromQuery] int pageSize = 10, AppDbContext db, HttpContext http) =>
+app.MapGet("/api/zonas", async (AppDbContext db, HttpContext http, [FromQuery] int page = 1, [FromQuery] int pageSize = 10) =>
 {
     (page, pageSize) = Pagination.Normalize(page, pageSize, MaxPageSize);
 
@@ -220,7 +220,7 @@ app.MapDelete("/api/zonas/{id:int}", async (int id, AppDbContext db) =>
 
 // =============== MOTOS ===================
 
-app.MapGet("/api/motos", async ([FromQuery] int page = 1, [FromQuery] int pageSize = 10, AppDbContext db, HttpContext http) =>
+app.MapGet("/api/motos", async (AppDbContext db, HttpContext http, [FromQuery] int page = 1, [FromQuery] int pageSize = 10) =>
 {
     (page, pageSize) = Pagination.Normalize(page, pageSize, MaxPageSize);
 

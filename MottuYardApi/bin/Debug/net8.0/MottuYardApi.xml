@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MottuYardApi</name>
+    </assembly>
+    <members>
+        <member name="T:MottuYardApi.DTOs.PatioDto">
+            <summary>Pátio logístico da Mottu.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.PatioDto.#ctor(System.Int32,System.String,System.String,System.String)">
+            <summary>Pátio logístico da Mottu.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.PatioCreateDto">
+            <summary>Criação de pátio.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.PatioCreateDto.#ctor(System.String,System.String,System.String)">
+            <summary>Criação de pátio.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.PatioUpdateDto">
+            <summary>Atualização de pátio.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.PatioUpdateDto.#ctor(System.String,System.String,System.String)">
+            <summary>Atualização de pátio.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.ZonaDto">
+            <summary>Zona dentro de um pátio.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.ZonaDto.#ctor(System.Int32,System.String,System.Int32,System.String)">
+            <summary>Zona dentro de um pátio.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.ZonaCreateDto">
+            <summary>Criação de zona.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.ZonaCreateDto.#ctor(System.String,System.Int32)">
+            <summary>Criação de zona.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.ZonaUpdateDto">
+            <summary>Atualização de zona.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.ZonaUpdateDto.#ctor(System.String)">
+            <summary>Atualização de zona.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.MotoDto">
+            <summary>Moto rastreada no pátio.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MotoDto.#ctor(System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.String)">
+            <summary>Moto rastreada no pátio.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.MotoCreateDto">
+            <summary>Criação de moto.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MotoCreateDto.#ctor(System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>Criação de moto.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.MotoUpdateDto">
+            <summary>Atualização de moto.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MotoUpdateDto.#ctor(System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>Atualização de moto.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.MotoMoverDto">
+            <summary>Movimentação de moto: alterar zona.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MotoMoverDto.#ctor(System.Int32)">
+            <summary>Movimentação de moto: alterar zona.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.Link">
+            <summary>Link HATEOAS.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.Link.#ctor(System.String,System.String,System.String)">
+            <summary>Link HATEOAS.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.Resource`1">
+            <summary>Envelope HATEOAS de um recurso.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.PagedResult`1">
+            <summary>Resultado paginado.</summary>
+        </member>
+    </members>
+</doc>

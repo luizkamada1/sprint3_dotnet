@@ -33,7 +33,8 @@ Escolhemos as entidades **Pátio → Zona → Moto** porque representam a hierar
 Pré-requisito: **.NET 8 SDK** instalado
 
 ```bash
-dotnet restore
+dotnet restore MottuYardApi
+dotnet restore MottuYardApi.Tests
 dotnet run --project MottuYardApi
 ```
 Swagger: abra a URL exibida no console (ex.: `http://localhost:5201/swagger`).
@@ -42,7 +43,7 @@ Swagger: abra a URL exibida no console (ex.: `http://localhost:5201/swagger`).
 
 ### Rodar testes
 ```bash
-dotnet test
+dotnet test MottuYardApi.Tests
 ```
 
 ---

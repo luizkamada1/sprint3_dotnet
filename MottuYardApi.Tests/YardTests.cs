@@ -1,8 +1,10 @@
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MottuYardApi.Data;
 using MottuYardApi.Models;
 using Xunit;
-using FluentAssertions;
 
 namespace MottuYardApi.Tests;
 
@@ -13,6 +15,7 @@ public class YardTests
         var options = new DbContextOptionsBuilder<AppDbContext>()
             .UseInMemoryDatabase(Guid.NewGuid().ToString())
             .Options;
+
         var ctx = new AppDbContext(options);
         SeedData.Initialize(ctx);
         return ctx;
@@ -22,9 +25,9 @@ public class YardTests
     public void Seed_Should_Create_Patios_Zonas_Motos()
     {
         using var ctx = NewCtx();
-        ctx.Patios.Count().Should().BeGreaterThan(0);
-        ctx.Zonas.Count().Should().BeGreaterThan(0);
-        ctx.Motos.Count().Should().BeGreaterThan(0);
+        Assert.True(ctx.Patios.Count() > 0);
+        Assert.True(ctx.Zonas.Count() > 0);
+        Assert.True(ctx.Motos.Count() > 0);
     }
 
     [Fact]
@@ -42,6 +45,7 @@ public class YardTests
         await ctx.SaveChangesAsync();
 
         var loaded = await ctx.Motos.FindAsync(moto.Id);
-        loaded!.ZonaId.Should().Be(zTo.Id);
+        Assert.NotNull(loaded);
+        Assert.Equal(zTo.Id, loaded!.ZonaId);
     }
 }
