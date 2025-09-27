@@ -48,37 +48,16 @@ dotnet test MottuYardApi.Tests
 
 ---
 
-## 🧭 Endpoints principais
+## 🧭 Endpoints principais + exemplos de uso
 
-### Pátios
-- `GET /api/patios?page=1&pageSize=10`
-- `GET /api/patios/{id}`
-- `POST /api/patios`
-- `PUT /api/patios/{id}`
-- `DELETE /api/patios/{id}`
+### **PÁTIO**
 
-### Zonas
-- `GET /api/zonas?page=1&pageSize=10`
-- `GET /api/zonas/{id}`
-- `GET /api/zonas/patio/{patioId}`
-- `POST /api/zonas`
-- `PUT /api/zonas/{id}`
-- `DELETE /api/zonas/{id}`
+#### Criar Pátio
 
-### Motos
-- `GET /api/motos?page=1&pageSize=10`
-- `GET /api/motos/{id}`
-- `GET /api/motos/zona/{zonaId}`
-- `POST /api/motos`
-- `PUT /api/motos/{id}`
-- `DELETE /api/motos/{id}`
-- **Ação de negócio:** `POST /api/motos/{id}/mover` (mover moto entre zonas)
+```
+POST /api/patios
+```
 
----
-
-## 📦 Exemplos de payloads
-
-**POST /api/patios**
 ```json
 {
   "nome": "CD Curitiba",
@@ -87,42 +66,180 @@ dotnet test MottuYardApi.Tests
 }
 ```
 
-**POST /api/zonas**
+#### Listar Pátios (paginado)
+
+```
+GET /api/patios?page=1&pageSize=10
+```
+
+#### Obter Pátio por ID
+
+```
+GET /api/patios/1
+```
+
+#### Atualizar Pátio
+
+```
+PUT /api/patios/1
+```
+
 ```json
 {
-  "nome": "C1",
+  "nome": "CD São Paulo",
+  "cidade": "São Paulo",
+  "estado": "SP"
+}
+```
+
+#### Remover Pátio
+
+```
+DELETE /api/patios/1
+```
+
+---
+
+### **ZONA**
+
+#### Criar Zona
+
+```
+POST /api/zonas
+```
+
+```json
+{
+  "nome": "Zona C1",
   "patioId": 1
 }
 ```
 
-**POST /api/motos**
+#### Listar Zonas (paginado)
+
+```
+GET /api/zonas?page=1&pageSize=10
+```
+
+#### Obter Zona por ID
+
+```
+GET /api/zonas/1
+```
+
+#### Listar Zonas de um Pátio
+
+```
+GET /api/zonas/patio/1
+```
+
+#### Atualizar Zona
+
+```
+PUT /api/zonas/1
+```
+
+```json
+{
+  "nome": "Zona C2",
+  "patioId": 1
+}
+```
+
+#### Remover Zona
+
+```
+DELETE /api/zonas/1
+```
+
+---
+
+### **MOTO**
+
+#### Criar Moto
+
+```
+POST /api/motos
+```
+
 ```json
 {
   "placa": "AAA1B23",
   "modelo": "CG 160",
   "status": "Ativa",
-  "zonaId": 2
+  "zonaId": 1
 }
 ```
 
-**POST /api/motos/{id}/mover**
+#### Listar Motos (paginado)
+
+```
+GET /api/motos?page=1&pageSize=10
+```
+
+#### Obter Moto por ID
+
+```
+GET /api/motos/1
+```
+
+#### Listar Motos de uma Zona
+
+```
+GET /api/motos/zona/1
+```
+
+#### Atualizar Moto
+
+```
+PUT /api/motos/1
+```
+
 ```json
 {
-  "novaZonaId": 3
+  "placa": "BBB2C34",
+  "modelo": "CG 160 Fan",
+  "status": "Manutenção",
+  "zonaId": 1
+}
+```
+
+#### Remover Moto
+
+```
+DELETE /api/motos/1
+```
+
+#### Mover Moto entre Zonas (ação de negócio)
+
+```
+POST /api/motos/1/mover
+```
+
+```json
+{
+  "novaZonaId": 2
 }
 ```
 
 ---
+
 
 ## 🔧 Decisões de arquitetura
 
-- **Minimal API** para baixo overhead e foco em endpoints claros
-- **DTOs** para separar contrato público do modelo de dados
-- **InMemory** para rodar localmente sem depender de SGBD; em produção, usar SQL Server/PostgreSQL
-- **Paginação** consistente com `page` e `pageSize` + **HATEOAS** para navegação
-- **Status codes**: 201 (POST), 204 (PUT/DELETE), 404 (não encontrado), 400 (validação)
+* **Minimal API** para endpoints enxutos e simples
+* **DTOs** para manter contratos limpos
+* **InMemory** para testes rápidos; pode ser trocado por SQL Server/PostgreSQL em produção
+* **Paginação + HATEOAS** para navegação padrão REST
+* **Status codes corretos**:
+
+  * `201 Created` para POST
+  * `204 No Content` para PUT/DELETE
+  * `404 Not Found` para inexistentes
+  * `400 Bad Request` para erros de validação
 
 ---
+
 
 ## 🧪 Sobre os testes
 
