@@ -37,7 +37,7 @@ dotnet restore MottuYardApi
 dotnet restore MottuYardApi.Tests
 dotnet run --project MottuYardApi
 ```
-Swagger: abra a URL exibida no console (ex.: `http://localhost:5201/swagger`).
+Swagger: abra a URL exibida no console (ex.: `http://localhost:5000`).
 
 > O endpoint raiz `/` redireciona para `/swagger`.
 
