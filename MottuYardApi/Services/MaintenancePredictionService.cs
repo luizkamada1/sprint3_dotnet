@@ -15,6 +15,7 @@ namespace MottuYardApi.Services
         public float BreakdownHistory { get; set; }
 
         [LoadColumn(3)]
+        [ColumnName("Label")]
         public bool RequiresMaintenance { get; set; }
     }
 
