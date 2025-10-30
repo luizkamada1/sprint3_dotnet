@@ -20,6 +20,7 @@
     <!-- EF Core explicitamente referenciado no projeto de testes -->
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.6" />
   </ItemGroup>
 
   <ItemGroup>

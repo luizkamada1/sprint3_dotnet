@@ -24,6 +24,10 @@ Escolhemos as entidades **Pátio → Zona → Moto** porque representam a hierar
 - **EF Core InMemory** (execução rápida e testes simples)
 - Pastas: `Models`, `DTOs`, `Data`, `Utils`
 - **Swagger** com XML comments (já habilitado no `.csproj`)
+- **API Versioning** (`/api/v1/...`) com documentação agrupada no Swagger
+- **Segurança por API Key** (`X-API-Key`) aplicada aos endpoints da API
+- **Health Checks** em `/health`
+- **Endpoint analítico com ML.NET** para prever manutenção preventiva
 - **HATEOAS**: links `self`, `next`, `prev` e links de navegação entre recursos
 
 ---
@@ -41,6 +45,17 @@ Swagger: abra a URL exibida no console (ex.: `http://localhost:5000`).
 
 > O endpoint raiz `/` redireciona para `/swagger`.
 
+### Autenticação por API Key
+
+Todos os endpoints versionados (`/api/v1/...`) exigem o cabeçalho `X-API-Key`.
+Durante o desenvolvimento e testes a chave padrão é `local-dev-key`.
+
+Exemplo com `curl`:
+
+```bash
+curl -H "X-API-Key: local-dev-key" http://localhost:5000/api/v1/patios
+```
+
 ### Rodar testes
 ```bash
 dotnet test MottuYardApi.Tests
@@ -55,7 +70,7 @@ dotnet test MottuYardApi.Tests
 #### Criar Pátio
 
 ```
-POST /api/patios
+POST /api/v1/patios
 ```
 
 ```json
@@ -69,19 +84,19 @@ POST /api/patios
 #### Listar Pátios (paginado)
 
 ```
-GET /api/patios?page=1&pageSize=10
+GET /api/v1/patios?page=1&pageSize=10
 ```
 
 #### Obter Pátio por ID
 
 ```
-GET /api/patios/1
+GET /api/v1/patios/1
 ```
 
 #### Atualizar Pátio
 
 ```
-PUT /api/patios/1
+PUT /api/v1/patios/1
 ```
 
 ```json
@@ -95,7 +110,7 @@ PUT /api/patios/1
 #### Remover Pátio
 
 ```
-DELETE /api/patios/1
+DELETE /api/v1/patios/1
 ```
 
 ---
@@ -105,7 +120,7 @@ DELETE /api/patios/1
 #### Criar Zona
 
 ```
-POST /api/zonas
+POST /api/v1/zonas
 ```
 
 ```json
@@ -118,25 +133,25 @@ POST /api/zonas
 #### Listar Zonas (paginado)
 
 ```
-GET /api/zonas?page=1&pageSize=10
+GET /api/v1/zonas?page=1&pageSize=10
 ```
 
 #### Obter Zona por ID
 
 ```
-GET /api/zonas/1
+GET /api/v1/zonas/1
 ```
 
 #### Listar Zonas de um Pátio
 
 ```
-GET /api/zonas/patio/1
+GET /api/v1/zonas/patio/1
 ```
 
 #### Atualizar Zona
 
 ```
-PUT /api/zonas/1
+PUT /api/v1/zonas/1
 ```
 
 ```json
@@ -149,7 +164,7 @@ PUT /api/zonas/1
 #### Remover Zona
 
 ```
-DELETE /api/zonas/1
+DELETE /api/v1/zonas/1
 ```
 
 ---
@@ -159,7 +174,7 @@ DELETE /api/zonas/1
 #### Criar Moto
 
 ```
-POST /api/motos
+POST /api/v1/motos
 ```
 
 ```json
@@ -174,25 +189,25 @@ POST /api/motos
 #### Listar Motos (paginado)
 
 ```
-GET /api/motos?page=1&pageSize=10
+GET /api/v1/motos?page=1&pageSize=10
 ```
 
 #### Obter Moto por ID
 
 ```
-GET /api/motos/1
+GET /api/v1/motos/1
 ```
 
 #### Listar Motos de uma Zona
 
 ```
-GET /api/motos/zona/1
+GET /api/v1/motos/zona/1
 ```
 
 #### Atualizar Moto
 
 ```
-PUT /api/motos/1
+PUT /api/v1/motos/1
 ```
 
 ```json
@@ -207,18 +222,53 @@ PUT /api/motos/1
 #### Remover Moto
 
 ```
-DELETE /api/motos/1
+DELETE /api/v1/motos/1
 ```
 
 #### Mover Moto entre Zonas (ação de negócio)
 
 ```
-POST /api/motos/1/mover
+POST /api/v1/motos/1/mover
 ```
 
 ```json
 {
   "novaZonaId": 2
+}
+```
+
+---
+
+### **Saúde da aplicação**
+
+```text
+GET /health
+```
+
+Retorna `200 OK` quando o serviço está íntegro.
+
+---
+
+### **Analytics / ML.NET**
+
+```text
+POST /api/v1/analytics/maintenance-prediction
+```
+
+```json
+{
+  "daysSinceMaintenance": 30,
+  "completedDeliveries": 120,
+  "breakdownHistory": 2
+}
+```
+
+Resposta exemplo:
+
+```json
+{
+  "requiresMaintenance": true,
+  "probability": 0.82
 }
 ```
 
@@ -244,4 +294,5 @@ POST /api/motos/1/mover
 ## 🧪 Sobre os testes
 
 - Projeto `MottuYardApi.Tests` com **xUnit + EF InMemory**
-- Testes cobrem _seed_, criação de entidades e movimentação de moto
+- **Testes unitários** para a lógica de predição com ML.NET
+- **Testes de integração** via `WebApplicationFactory` validando versionamento, health check e segurança por API Key
