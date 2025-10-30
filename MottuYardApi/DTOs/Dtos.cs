@@ -33,4 +33,10 @@ namespace MottuYardApi.DTOs
 
     /// <summary>Movimentação de moto: alterar zona.</summary>
     public record MotoMoverDto(int NovaZonaId);
+
+    /// <summary>Solicitação para estimar necessidade de manutenção de uma moto.</summary>
+    public record MaintenancePredictionRequest(float DaysSinceMaintenance, float CompletedDeliveries, float BreakdownHistory);
+
+    /// <summary>Resposta da predição de manutenção.</summary>
+    public record MaintenancePredictionResponse(bool RequiresMaintenance, float Probability);
 }
