@@ -21,4 +21,12 @@ public class MaintenancePredictionServiceTests
         Assert.True(prediction.Probability is >= 0 and <= 1);
         Assert.True(prediction.RequiresMaintenance);
     }
+
+    [Fact]
+    public void Predict_Should_Throw_For_Null_Input()
+    {
+        var service = new MaintenancePredictionService();
+
+        Assert.Throws<ArgumentNullException>(() => service.Predict(null!));
+    }
 }
