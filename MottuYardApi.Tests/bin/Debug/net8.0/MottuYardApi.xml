@@ -64,6 +64,18 @@
         <member name="M:MottuYardApi.DTOs.MotoMoverDto.#ctor(System.Int32)">
             <summary>Movimentação de moto: alterar zona.</summary>
         </member>
+        <member name="T:MottuYardApi.DTOs.MaintenancePredictionRequest">
+            <summary>Solicitação para estimar necessidade de manutenção de uma moto.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MaintenancePredictionRequest.#ctor(System.Single,System.Single,System.Single)">
+            <summary>Solicitação para estimar necessidade de manutenção de uma moto.</summary>
+        </member>
+        <member name="T:MottuYardApi.DTOs.MaintenancePredictionResponse">
+            <summary>Resposta da predição de manutenção.</summary>
+        </member>
+        <member name="M:MottuYardApi.DTOs.MaintenancePredictionResponse.#ctor(System.Boolean,System.Single)">
+            <summary>Resposta da predição de manutenção.</summary>
+        </member>
         <member name="T:MottuYardApi.DTOs.Link">
             <summary>Link HATEOAS.</summary>
         </member>

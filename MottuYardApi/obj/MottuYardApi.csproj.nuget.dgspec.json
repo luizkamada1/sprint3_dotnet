@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/luizkamada/Downloads/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj": {}
+    "/Users/luizkamada/Downloads/teste/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj": {}
   },
   "projects": {
-    "/Users/luizkamada/Downloads/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj": {
+    "/Users/luizkamada/Downloads/teste/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/luizkamada/Downloads/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj",
+        "projectUniqueName": "/Users/luizkamada/Downloads/teste/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj",
         "projectName": "MottuYardApi",
-        "projectPath": "/Users/luizkamada/Downloads/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj",
+        "projectPath": "/Users/luizkamada/Downloads/teste/sprint3_dotnet/MottuYardApi/MottuYardApi.csproj",
         "packagesPath": "/Users/luizkamada/.nuget/packages/",
-        "outputPath": "/Users/luizkamada/Downloads/sprint3_dotnet/MottuYardApi/obj/",
+        "outputPath": "/Users/luizkamada/Downloads/teste/sprint3_dotnet/MottuYardApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/luizkamada/.nuget/NuGet/NuGet.Config"
@@ -44,6 +44,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Asp.Versioning.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Asp.Versioning.Mvc.ApiExplorer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.6, )"
@@ -51,6 +59,10 @@
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
               "version": "[8.0.6, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

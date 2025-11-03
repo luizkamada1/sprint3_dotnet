@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MottuYardApi.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9dd4d5732c7c5ca810802e8109fb3dfecf09ba29")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b302c4fde49809f4f798bf68685251750deecf39")]
 [assembly: System.Reflection.AssemblyProductAttribute("MottuYardApi.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MottuYardApi.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
