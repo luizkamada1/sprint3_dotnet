@@ -1,4 +1,4 @@
-# Challenge Mottu - Sprint 3 - ADVANCED BUSINESS DEVELOPMENT WITH .NET
+# Challenge Mottu - Sprint 4 - ADVANCED BUSINESS DEVELOPMENT WITH .NET
 
 ## 👥 Integrantes:
 - Eduardo Guilherme Dias - RM557886 - 2TDSPV
@@ -13,7 +13,7 @@ Entidades principais: **Pátios**, **Zonas** e **Motos**.
 
 ## Contexto Mottu
 
-O problema de negócio do é mapear e gerenciar **motos** alocadas em **zonas** dentro de **pátios** logísticos.  
+O desafio da Mottu é mapear e gerenciar **motos** alocadas em **zonas** dentro de **pátios** logísticos.  
 Escolhemos as entidades **Pátio → Zona → Moto** porque representam a hierarquia real de localização e permitem cobrir cenários típicos de **inventário**, **alocação** e **movimentação** com endpoints REST claros.
 
 ---
